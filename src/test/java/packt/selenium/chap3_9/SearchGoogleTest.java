@@ -37,5 +37,8 @@ public class SearchGoogleTest {
         googlePage = new Google(driver);
         searchPage = googlePage.goToSearchPage();
         searchPage.getNumberOfResults();
+        searchPage.goToLynda(driver);
+        System.out.println(driver.getTitle());
+
     }
 }
