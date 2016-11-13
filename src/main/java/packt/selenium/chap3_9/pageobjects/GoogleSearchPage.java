@@ -2,6 +2,8 @@ package packt.selenium.chap3_9.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Ripon on 11/19/2015.
@@ -23,8 +25,8 @@ public class GoogleSearchPage {
 
     public Lynda goToLynda (WebDriver driver){
         driver.findElement(By.linkText("Mastering Selenium Testing Tools - Lynda.com")).click();
-        //WebDriverWait wait = new WebDriverWait(driver, 10);
-        //wait.until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nav-logo")));
         return new Lynda(driver);
     }
 }
