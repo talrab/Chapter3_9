@@ -26,7 +26,7 @@ public class GoogleSearchPage {
     public Lynda goToLynda (WebDriver driver){
         driver.findElement(By.linkText("Mastering Selenium Testing Tools - Lynda.com")).click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nav-logooooo")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nav-logo")));
         return new Lynda(driver);
     }
 }
