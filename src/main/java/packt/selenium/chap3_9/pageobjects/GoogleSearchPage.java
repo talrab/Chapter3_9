@@ -10,9 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class GoogleSearchPage {
     private WebDriver driver;
+
     public GoogleSearchPage(WebDriver driver){
         this.driver = driver;
-        System.out.println(driver.getTitle());
+        //System.out.println(driver.getTitle() + " (in googleSearchPag constractor)");
         if (!driver.getTitle().equals("Mastering Selenium Testing Tools - Google Search")){
             throw new WrongPageException("Incorrect page for Google Search page");
         }
@@ -23,8 +24,9 @@ public class GoogleSearchPage {
         return  numberOfResults;
     }
 
-    public Lynda goToLynda (WebDriver driver){
+    public Lynda goToLynda (){
         driver.findElement(By.linkText("Mastering Selenium Testing Tools - Lynda.com")).click();
+        //System.out.println(driver.getTitle() + " (in goToLynda)");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nav-logo")));
         return new Lynda(driver);

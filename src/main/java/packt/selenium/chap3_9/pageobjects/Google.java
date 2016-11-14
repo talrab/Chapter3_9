@@ -16,7 +16,7 @@ public class Google {
         this.driver = driver;
         baseURL = "https://www.google.com/";
         driver.get(baseURL + "?gws_rd=cr,ssl&ei=qZlNVpOUMNCauQS0iYmoCA&fg=1");
-        System.out.println(driver.getTitle());
+        //System.out.println(driver.getTitle() + " (in google constractor)");
         if (!driver.getTitle().equals("Google")){
             throw new WrongPageException("Incorrect page for Google Home page");
         }
@@ -26,6 +26,7 @@ public class Google {
         driver.findElement(By.name("btnG")).click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
+        //System.out.println(driver.getTitle() + " (in google.goToSearchPage)");
         return new GoogleSearchPage(driver);
     }
 }
